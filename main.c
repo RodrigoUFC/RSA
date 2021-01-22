@@ -268,7 +268,7 @@ int main()
     clock_t begin = clock();
 
     for (int i=0;i<10000;i++) {
-        modularSubtract_largeInt(&a,&b,&m,&c);
+        modularSum_largeInt(&a,&b,&m,&c);
         create_largeInt(&a,n1,sizeof(n1));
         create_largeInt(&b, n2, sizeof(n2));
         create_largeInt(&m, modulo, sizeof(modulo));
@@ -283,7 +283,17 @@ int main()
     //modularSum_largeInt(&a,&b,&m,&c);
     //modularSubtract_largeInt(&a,&b,&m,&c);
     //printf("\n%d ",d);
-    printf("Modular Subtraction: ");
+    printf("A: ");
+    for (int j=a.lastDigit; j>=0; j--)
+    {
+        printf("%d",a.digits[j]-'0');
+    }
+    printf("\n\nB: ");
+    for (int j=b.lastDigit; j>=0; j--)
+    {
+        printf("%d",b.digits[j]-'0');
+    }
+    printf("\n\nAddition Modulaire: ");
     for (int j=c.lastDigit; j>=0; j--)
     {
         printf("%d",c.digits[j]);
@@ -291,3 +301,4 @@ int main()
     printf("\nRuntime: %f",time_spent/10000);
     return 0;
 }
+
